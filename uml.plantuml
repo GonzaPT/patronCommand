@@ -1,0 +1,40 @@
+@startuml Patron Command
+
+commandMain -> Invoker
+class commandMain{}
+
+Invoker -> Command
+class Invoker{
+
+    - comandList
+
+    + takeOrder(order)
+    + placeOrder()
+}
+
+commandMain -> Stock
+class Stock{
+        
+    - name: String
+    - quantity: int
+
+    + getName()
+    + setName(name)
+    + getQuantity()
+    + setQuantity(quantity)
+    + buy()
+}
+
+interface Command{
+        + execute()
+}
+
+class Buy implements Command{
+    
+    - stock: Stock
+
+    + Buy(stock)
+    + execute()
+}
+
+@enduml
