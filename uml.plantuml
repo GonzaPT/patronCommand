@@ -1,6 +1,7 @@
 @startuml Patron Command
 
-commandMain -> Invoker
+Invoker -> commandMain
+commandMain -> Stock
 class commandMain{}
 
 Invoker -> Command
@@ -12,7 +13,7 @@ class Invoker{
     + placeOrder()
 }
 
-commandMain -> Stock
+
 class Stock{
         
     - name: String
